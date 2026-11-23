@@ -5,7 +5,6 @@ import 'package:arcade_motoru/kosu.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const kosuId = 'oyun-sonsuz-kosu';
 
@@ -88,7 +87,7 @@ final kosuConfig = GameConfig(
   rules: kosuRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => kosuRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => kosuRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintRun(c, s, p, t);
